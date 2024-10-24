@@ -3,19 +3,49 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary: #ebeaea;
+  --secondary: #d8d7d7da;
+  
+  --lightOrange: #f79448;
+  --lightYellow: #fdb94d;
+  --warning:#f3715a;
+  --borderRadius:0.8rem;
+
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.formParent{
+  background-image: url("../../public/login-pic.jpg");
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  height: fit-content;
+  justify-content: center;
+  gap: 0.5rem;
+  background-size: cover;
+  padding: 1rem;
+}
+.formParent form{
+  box-shadow: 0px 1px 8px 0 black;
+  background: linear-gradient(to bottom, transparent 80%, #ffffffb0);
+  backdrop-filter: blur(13px);
+  border: 1px solid white;
+  border-top-right-radius: var(--borderRadius);
+  border-bottom-right-radius: var(--borderRadius);
+  padding: 1.7rem 1.5rem;
+  flex-basis: 30%;
+}
+
+.passIcon{
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  transform: translateY(-50%);
+}
+
+
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
   }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
 }

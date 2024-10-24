@@ -1,0 +1,19 @@
+what states?
+
+-questions of exam
+-student + id + student exams + duration
+
+//----------------------------
+ routes?
+
+-user authentication > choosing exam > go exam
+-choosing exam > user result
+
+//----------------------------
+
+components?
+-header
+-sidebar
+-content
+-footer
+
