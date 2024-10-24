@@ -32,18 +32,33 @@ function FormValidation() {
   };
 
   return (
-    <div className="formParent">
-      <div className="p-5 min-h-[360px] bg-secondary flex-1 flex flex-col justify-between">
-        <h1 className="text-[3rem]">Welcome to examination environment</h1>
-        <ul>
-          {allStudents.map((stud) => (
-            <li key={stud.id} className="flex gap-5">
-              <Contact /> <span>UserName: {stud.userName}</span>
-              <span>Password:{stud.password}</span>
-            </li>
-          ))}
-        </ul>
-        <p className="text-lightOrange">Mock of ITI exam interface</p>
+    <div className="formParent p-[1rem] flex justify-center items-center gap-[0.5rem] flex-col md:flex-row">
+      <div className="left-details p-5 min-h-[360px] bg-secondary flex-1 flex flex-col justify-between">
+        <h1 className="text-[2.5rem]">Welcome to examination environment</h1>
+        <div className="flex gap-4 ">
+          <p className="flex-1 border-right p-2">
+            This is{" "}
+            <span className="text-orange-400 font-bold">Development Mode</span>,
+            which is not a real-time project and without backend. <br />
+            So, As a developer I prepared some accounts of random students to
+            test it.
+          </p>
+
+          <ul className="flex  flex-col gap-4  p-2 ">
+            {allStudents.map((stud) => (
+              <li key={stud.id} className="flex items-center gap-5">
+                <Contact className="text-orange-400" />
+                <div className="flex-1">
+                  <p>UserName: {stud.userName}</p>
+                  <p>Password: {stud.password}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <p className="text-orange-400 font-extrabold tracking-wider">
+          Mock of ITI exam interface
+        </p>
       </div>
       <form className="min-h-[360px]" onSubmit={(e) => validation(e)}>
         <h4 className="text-lightOrange text-2xl text-center font-bold tracking-widest  ">

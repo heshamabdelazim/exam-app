@@ -3,13 +3,17 @@ import { Eye, EyeClosed } from "lucide-react";
 import React, { useState } from "react";
 
 function FormInput({ type, form }) {
-  const ifPassword = type === "password";
+  const ifPassword = type === "password"; //to deferntiate between inputs(text or password)
   let [password, setPassword] = useState(ifPassword && true); // true : false
   const iconClasses = "passIcon absolute z-50 cursor-pointer";
 
-  console.log(form);
+  console.log(form); //output is
+  /*
+    formData: {userName: 'Hesham', password: 'Abdelazim', sorry: null}
+    setFormData : ƒ ()
+  */
+
   const updating = (e) => {
-    console.log(e.target.value);
     ifPassword
       ? form.setFormData((old) => {
           return { ...old, password: e.target.value, sorry: null };

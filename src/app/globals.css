@@ -18,12 +18,33 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
-  height: fit-content;
   justify-content: center;
+  height: fit-content;
   gap: 0.5rem;
   background-size: cover;
   padding: 1rem;
 }
+.formParent .left-details{
+  background-size: cover;
+  position: relative;
+  z-index: 1;
+}
+.formParent .left-details::before{
+  content: "";
+  background-image: url(../../public//background.png);
+  /* background-color: red; */
+  position: absolute;
+  background-size:cover ;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.3;
+}
+
+
+
 .formParent form{
   box-shadow: 0px 1px 8px 0 black;
   background: linear-gradient(to bottom, transparent 80%, #ffffffb0);
@@ -33,6 +54,7 @@
   border-bottom-right-radius: var(--borderRadius);
   padding: 1.7rem 1.5rem;
   flex-basis: 30%;
+  animation: open 0.8s forwards;
 }
 
 .passIcon{
@@ -41,6 +63,10 @@
   right: 5%;
   transform: translateY(-50%);
 }
+.border-right{ 
+  /*this class used in formValidation*/
+  border-left: 5px solid #fb923c
+}
 
 
 
@@ -48,4 +74,9 @@
   .text-balance {
     text-wrap: balance;
   }
+}
+
+@keyframes open{
+  from{opacity: 0;}
+  to{opacity: 1;}
 }
