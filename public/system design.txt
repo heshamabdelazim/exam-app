@@ -6,14 +6,14 @@ what states?
 //----------------------------
  routes?
 
--user authentication > choosing exam > go exam
--choosing exam > user result
+-user authentication > user Interface > exam
+-user Interface > user result
+-exam =(exit)=> user Interface
 
 //----------------------------
 
 components?
--header
--sidebar
--content
--footer
+-formValidation: inputForm
+-userInterface : header, sidebar, content, footer
+-
 

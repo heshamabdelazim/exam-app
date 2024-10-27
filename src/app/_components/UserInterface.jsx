@@ -1,14 +1,24 @@
 "use client";
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logOut } from "../../../lib/RTK/slices/studentSlice";
+import Image from "next/image";
+import { allStudents } from "../../../lib/data";
+import Header from "./Header";
 
 function UserInterface({ userData }) {
   const dispatch = useDispatch();
+
+  const _logOut = () => {
+    dispatch(logOut());
+    localStorage.clear("user");
+  };
+
+  console.log(userData);
   return (
     <div>
-      this is user INterface Hello: {userData?.userName}
-      <button onClick={() => dispatch(logOut())}>Logout</button>
+      <Header userData={userData} />
+      <button onClick={() => _logOut()}>Logout</button>
     </div>
   );
 }
