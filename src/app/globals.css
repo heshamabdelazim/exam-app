@@ -3,12 +3,10 @@
 @tailwind utilities;
 
 :root {
-  --primary: #ebeaea;
-  --secondary: #d8d7d7da;
-  
-  --lightOrange: #f79448;
+  --backGround: rgb(255, 236, 200);
+  --secondBackGround: rgb(254, 211, 129);
+  --lightOrange: #f67c1e;
   --lightYellow: #fdb94d;
-  --warning:#f3715a;
   --borderRadius:0.8rem;
 
 }
@@ -39,7 +37,7 @@
   width: 100%;
   height: 100%;
   z-index: -1;
-  opacity: 0.2;
+  opacity: 0.3;
 }
 
 

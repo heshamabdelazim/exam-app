@@ -20,8 +20,8 @@ function FormValidation() {
     if (formData.userName && formData.password) {
       const ifUser = allStudents.find(
         (user) =>
-          user.password == formData.password.trim() &&
-          user.userName == formData.userName
+          user.userName == formData.userName.trim() &&
+          user.password == formData.password
       );
 
       if (ifUser) {
@@ -35,9 +35,10 @@ function FormValidation() {
     }
   };
 
+  console.log(allStudents);
   return (
     <div className="formParent p-[1rem] flex justify-center items-center gap-[0.5rem] flex-col lg:flex-row">
-      <div className="left-details w-[100%] p-5 min-h-[360px] bg-secondary flex-1 flex flex-col justify-between">
+      <div className="left-details w-[100%] p-5 min-h-[360px] bg-slate-300 opacity-70 flex-1 flex flex-col justify-between">
         <h1 className="text-[2.5rem]">Welcome to examination environment</h1>
         <div className="flex flex-col md:flex-row items-center gap-4 ">
           <p className="flex-1 border-right p-2">

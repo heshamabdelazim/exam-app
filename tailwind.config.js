@@ -8,13 +8,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "var(--primary)",
-        secondary: "var(--secondary)",
+        backGround: "var(--backGround)",
+        secondBackGround: "var(--secondBackGround)",
         lightOrange: "var(--lightOrange)",
-        lightYellow: "#fdb94d",
-        warning: "var(--warning)",
-        test: "red",
-        test1: "blue",
+        lightYellow: "var(--lightYellow)",
       },
     },
   },

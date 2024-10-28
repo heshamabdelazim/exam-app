@@ -5,6 +5,9 @@ import { logOut } from "../../../lib/RTK/slices/studentSlice";
 import Image from "next/image";
 import { allStudents } from "../../../lib/data";
 import Header from "./Header";
+import SideBar from "./SideBar/SideBar";
+import MainCont from "./MainCont/MainCont";
+import { notoSerif } from "../fonts/fonts";
 
 function UserInterface({ userData }) {
   const dispatch = useDispatch();
@@ -16,10 +19,14 @@ function UserInterface({ userData }) {
 
   console.log(userData);
   return (
-    <div>
-      <Header userData={userData} />
+    <>
+      <div className={`flex gap-5 p-8 ${notoSerif.className}`}>
+        <SideBar userData={userData} />
+        <MainCont userData={userData} />
+        {/* <Header userData={userData} /> */}
+      </div>
       <button onClick={() => _logOut()}>Logout</button>
-    </div>
+    </>
   );
 }
 
