@@ -1,14 +1,14 @@
 import React from "react";
-import Motivations from "./Motivations";
 import Personality from "./Personality";
 import Goals from "./Goals";
-import Welcome from "./ًWelcome";
+import Welcome from "./1-Welcome/ًWelcome";
+import Scales from "./2-Scales/Scales";
 
 function MainCont({ userData }) {
   return (
-    <div className="flex-1 grid grid-cols-2 gap-3  bg-blue-500">
+    <div className="flex-1 grid grid-cols-2 gap-3  ">
       <Welcome userData={userData} />
-      <Motivations userData={userData} />
+      <Scales userData={userData} />
       <Personality userData={userData} />
       <Goals userData={userData} />
     </div>

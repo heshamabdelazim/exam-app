@@ -17,7 +17,9 @@ function UserInterface({ userData }) {
     localStorage.clear("user");
   };
 
-  console.log(userData);
+  const data = useSelector((data) => data.student);
+
+  console.log(data);
   return (
     <>
       <div className={`flex gap-5 p-8 ${notoSerif.className}`}>
