@@ -16,11 +16,10 @@ function Welcome({ userData }) {
         {`${justSpliting(0)} ${justSpliting(1)}`}
       </span>
       <span>, It's good to see you.</span>
-      <div className="mt-8">
+      <div className="mt-8 ">
         <h3 className={h3Classes}>Here are latest infomrations:</h3>
         <NewsList userData={userData} />
       </div>
-      <div></div>
     </div>
   );
 }

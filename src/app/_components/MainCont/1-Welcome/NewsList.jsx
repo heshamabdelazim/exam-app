@@ -1,6 +1,5 @@
 import React from "react";
-import ListCom from "../../ListCom";
-
+import ListCom from "./ListCom";
 function NewsList({ userData }) {
   return (
     <ul className="mt-3 flex flex-col gap-3 ">

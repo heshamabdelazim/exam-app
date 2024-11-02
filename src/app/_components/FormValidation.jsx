@@ -4,8 +4,8 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { userValidation } from "../../../lib/RTK/slices/studentSlice";
 import FormInput from "./FormInput";
-import { allStudents } from "../../../lib/data";
 import { Contact } from "lucide-react";
+import { allStudents } from "../../../lib/data";
 
 function FormValidation() {
   let [formData, setFormData] = useState({
@@ -24,6 +24,7 @@ function FormValidation() {
           user.password == formData.password
       );
 
+      console.log({ ...ifUser }, "TEST");
       if (ifUser) {
         dispatch(userValidation({ ...ifUser })); //why spread? because the output is with class like this => Student{id:..,...,...} so I made it normal object
         window.localStorage.setItem("user", JSON.stringify({ ...ifUser }));
@@ -39,18 +40,23 @@ function FormValidation() {
   return (
     <div className="formParent p-[1rem] flex justify-center items-center gap-[0.5rem] flex-col lg:flex-row">
       <div className="left-details w-[100%] p-5 min-h-[360px] bg-slate-300 opacity-70 flex-1 flex flex-col justify-between">
-        <h1 className="text-[2.5rem]">Welcome to examination environment</h1>
-        <div className="flex flex-col md:flex-row items-center gap-4 ">
-          <p className="flex-1 border-right p-2">
+        <h1 className="text-[2.5rem] text-center md:text-start md:text-5xl ">
+          Welcome to examination School
+        </h1>
+        <div className="flex flex-col md:flex-row items-center gap-4 mt-3 md:mt-0 text-[1rem] md:text-lg">
+          <p className="flex-1 border-right p-2 ">
             This is{" "}
             <span className="text-orange-400 font-bold">Development Mode</span>,
             which is not a real-time project and without backend. <br />
             So, Here are some accounts of random students for testing.
           </p>
 
-          <ul className="flex  flex-col gap-4  p-2 ">
+          <ul className="flex flex-wrap justify-center  md:flex-col gap-4 p-0 md:p-2 my-4 md:my-0">
             {allStudents.map((stud) => (
-              <li key={stud.id} className="flex items-center gap-5">
+              <li
+                key={stud.id}
+                className="flex items-center gap-3 md:gap-5 text-center"
+              >
                 <Contact className="text-orange-400" />
                 <div className="flex-1">
                   <p>UserName: {stud.userName}</p>

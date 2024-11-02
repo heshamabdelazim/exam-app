@@ -13,12 +13,12 @@ function Scales({ userData }) {
     {
       title: "Progress",
       rate: userData.progress,
-      description: "based on exams done",
+      description: `based on exams done (${userData.examsFinished.length} exams are done out of ${userData.examsIds.length})`,
     },
     {
       title: "Total Score",
       rate: userData.totalScore,
-      description: "based on your grades",
+      description: `based on your grades (Your grade letter is ${userData.gradeLetter})`,
     },
   ];
   return (

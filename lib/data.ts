@@ -1,17 +1,20 @@
+// import allExams from "./exams";
+import allExams from "./exams";
+
 class Student {
   static id = 1;
   constructor(
-    name,
-    userName,
-    password,
-    examsIds,
-    image,
-    grade,
-    quote,
-    yearBorn,
-    location,
-    hobbies,
-    news
+    name : String,
+    userName: String,
+    password : String,
+    examsIds: Number[],
+    image:String,
+    grade:Number,
+    quote:String,
+    yearBorn:Number,
+    location:String,
+    hobbies:String[],
+    personalNews:String[],
   ) {
     this.id = Student.id++;
     this.name = name;
@@ -31,9 +34,9 @@ class Student {
     this.progress = this._progress();
     this.gradeLetter = this._gradeLetter();
     this.age = this._age();
-    this.news = [this._firstMsg(), ...news, ...this._news()];
+    this.news = [this._firstMsg(), ...personalNews, ...this._news()];
+    this.examDetails = this._examDetails();
   }
-
   _examsFinished() {
     return this.examsIds.filter((exam) => exam.score);
   }
@@ -83,20 +86,37 @@ class Student {
         }, But still ${a.length - x.length} remaining.`
       : `Good Job, You have finished your all exams successfully.`;
   }
+
   _news() {
-    // if seme subject below 50 it will print a message to re-take it
-    const arrayToPush = [];
-    for (let i = 0; i < this.examsFinished.length; i++) {
-      if (this.examsFinished[i].score < 50) {
-        arrayToPush.push(
-          `To pass you need to re-take the exam ID ${this.examsFinished[i].examId}`
-        );
-      }
-    }
-    return [
+    // general news to all students
+    const generalNews = [
       "The school reached semi-final competition of karate.",
-      ...arrayToPush,
     ];
+    return [generalNews];
+  }
+  _examDetails() {
+    // this method should be done in SQL to query examId in the exam table
+    const arrayHasExams = [];
+    for (let i = 0; i < this.examsIds.length; i++) {
+      // getting the exam Object from all Exams
+      const indexFinder = allExams.find(
+        (examObj) => examObj.id == this.examsIds[i].id
+      );
+
+      // getting the questions array of that exam we got it (why I made it? because the output was [Question, Question] that done by class)
+      //so Redux does not understand that object unless I made it plain object like this output [{..}, {..}]
+      const questionsArray = indexFinder.quesArray.map((que) => {
+        return { ...que };
+      });
+
+      arrayHasExams.push({
+        ...indexFinder,
+        ...this.examsIds[i],
+        quesArray: questionsArray,
+      });
+      //  O(n square) => for loop * nested find loop
+    }
+    return arrayHasExams;
   }
 }
 
@@ -106,9 +126,9 @@ export const allStudents = [
     "Hesh-Abdo",
     "Hesham@98",
     [
-      { examId: 1, score: 20 },
-      { examId: 2, score: 90 },
-      { examId: 3, score: 60 },
+      { id: 1, score: 20 },
+      { id: 2, score: 49 },
+      { id: 3, score: 60 },
     ],
     "/stud3.jpg",
     9,
@@ -117,7 +137,7 @@ export const allStudents = [
     "Alexandria - Egypt",
     ["Passionate", "Active", "Games", "Fast Tasker"],
     [
-      "You forgot delivering your Maths homework.",
+      "Hello Mr Hesham, Please come to the adminstration with your parents",
       "You have assigned in the Musium Trip.",
     ]
   ),
@@ -126,9 +146,9 @@ export const allStudents = [
     "Hos-Ahmed",
     "Hossam@98",
     [
-      { examId: 1, score: null },
-      { examId: 2, score: 75 },
-      { examId: 3, score: null },
+      { id: 1, score: null },
+      { id: 2, score: 30 },
+      { id: 3, score: 55 },
     ],
     // [1, 2, 3],
     "/stud2.jpg",
@@ -147,10 +167,9 @@ export const allStudents = [
     "Basma-Essa",
     "Basma@98",
     [
-      { examId: 1, score: 65 },
-      { examId: 2, score: 70 },
-      { examId: 3, score: 76 },
-      { examId: 4, score: null },
+      { id: 1, score: 70 },
+      { id: 2, score: null },
+      { id: 3, score: 80 },
     ],
     "/female-stud.png",
     10,
@@ -166,19 +185,5 @@ export const allStudents = [
   ),
 ];
 
-// const test = new Student(
-//   "Basma Essa Ga'fr khaled",
-//   "Basma-Essa",
-//   "Basma@98",
-//   [
-//     { examId: 1, score: 65 },
-//     { examId: 2, score: 70 },
-//     { examId: 3, score: 76 },
-//     { examId: 4, score: null },
-//   ],
-//   "/female-stud.png",
-//   10,
-//   "Iam good",
-//   1998
-// );
-// console.log(test);
+// console.log(allStudents[0]._news());
+// console.log(allStudents[0]._test(), "we got it");

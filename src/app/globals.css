@@ -20,7 +20,14 @@
   gap: 0.5rem;
   background-size: cover;
   padding: 1rem;
+  background-repeat: no-repeat;
 }
+@media (max-width:767px){
+  .formParent{
+    background-position-x: -161px;
+  }
+}
+
 .formParent .left-details{
   background-size: cover;
   position: relative;
@@ -62,6 +69,9 @@
   border-left: 5px solid #fb923c
 }
 
+.attract{
+  animation: attract 1.2s alternate infinite linear;
+}
 
 /* gradient_bar */
 .gradient-bar{
@@ -77,4 +87,9 @@
 @keyframes open{
   from{opacity: 0;}
   to{opacity: 1;}
+}
+
+@keyframes attract{
+  from{color: white;}
+  to{color:rgba(255, 255, 0, 0.973)}
 }
