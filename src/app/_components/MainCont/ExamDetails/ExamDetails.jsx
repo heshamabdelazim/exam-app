@@ -15,7 +15,6 @@ function ExamDetails({ userData }) {
   useEffect(() => {
     fetchingData();
   }, []);
-  console.log(userData);
   console.log(exams);
   return (
     <div className="bg-backGround col-span-2 p-7">

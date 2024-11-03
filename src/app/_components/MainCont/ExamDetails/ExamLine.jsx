@@ -30,7 +30,10 @@ function ExamLine({ examObj }) {
         {examObj.score ? `Score: ${examObj.score}%` : `Required`}
       </strong>
       <strong className=" text-center basis-1/4 ">
-        Duration: {examObj.duration}min
+        Duration{" "}
+        {examObj.duration.hr
+          ? `${examObj.duration.hr} : ${examObj.duration.min}hr`
+          : `${examObj.duration.min}min`}
       </strong>
       {examObj.score ? (
         <>
