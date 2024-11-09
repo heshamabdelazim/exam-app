@@ -88,10 +88,31 @@
   box-shadow: inset 0 0 19px 14px lightgray
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+aside a::before{
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(50%, -50%) rotate(45deg);
+  width: 20px;
+  height: 20px;
+  background-color:inherit;
+}
+
+.flagged{
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.flagged::before{
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background: linear-gradient(to right, transparent, var(--lightYellow));
+  top: 0;
+  width: 100%;
+  height: 100%;
+  animation: flagging 0.5s forwards;
 }
 
 @keyframes open{
@@ -103,3 +124,16 @@
   from{color: white;}
   to{color:rgba(255, 255, 0, 0.973)}
 }
+
+@keyframes flagging{
+  from{ right: -100%;}
+  to{right: 0;}
+}
+
+
+
+  @layer utilities {
+    .text-balance {
+      text-wrap: balance;
+    }
+  }

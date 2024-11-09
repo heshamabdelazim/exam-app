@@ -13,7 +13,6 @@ function ExamLine({ examObj }) {
       : "bg-lightOrange  attract"
   } px-2 py-1 rounded-full`;
 
-  console.log(examObj);
   return (
     <li className={liClass}>
       <div className="flex gap-2 items-center basis-1/4">

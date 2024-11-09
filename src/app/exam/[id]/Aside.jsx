@@ -1,16 +1,19 @@
-import React from "react";
+"use client";
+import React, { useEffect } from "react";
 
-function Aside({ exam }) {
+function Aside({ exam, test }) {
+  console.log(exam.quesArray);
   return (
-    <aside className=" row-span-6 col-span-1 flex flex-col items-end p-4 gap-8">
+    <aside className=" row-span-6 col-span-1 flex flex-col items-end p-4 gap-8 bg-slate-100">
       {exam?.quesArray.map((que, ind) => (
         <a
           key={ind}
-          href={que.id}
-          className="bg-red-500 w-full h-14 flex justify-end items-center"
+          href={`#que${que.id}`}
+          className={`relative w-[90%] h-10 flex justify-center items-center hover:border transition-all ${
+            que.flagged ? "bg-secondBackGround" : "bg-slate-300"
+          }`}
         >
-          {" "}
-          {que.id}
+          {ind + 1}
         </a>
       ))}
     </aside>
