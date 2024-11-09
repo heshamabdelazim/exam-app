@@ -3,7 +3,7 @@ import React from "react";
 
 function ListCom({ LineData }) {
   return (
-    <li className="flex items-center gap-3 font-bold">
+    <li className="flex items-center gap-1 md:gap-3 font-bold">
       <Circle
         fill="orange"
         stroke="none"

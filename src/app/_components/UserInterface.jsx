@@ -10,13 +10,6 @@ import MainCont from "./MainCont/MainCont";
 import { notoSerif } from "../fonts/fonts";
 
 function UserInterface({ userData }) {
-  const dispatch = useDispatch();
-
-  const _logOut = () => {
-    dispatch(logOut());
-    localStorage.clear("user");
-  };
-
   const data = useSelector((data) => data.student);
 
   console.log(data);
@@ -29,7 +22,6 @@ function UserInterface({ userData }) {
         <MainCont userData={userData} contentPadding="p-3 md:p-6" />
         {/* <Header userData={userData} /> */}
       </div>
-      <button onClick={() => _logOut()}>Logout</button>
     </>
   );
 }

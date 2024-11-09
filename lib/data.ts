@@ -137,7 +137,7 @@ export const allStudents = [
     "Alexandria - Egypt",
     ["Passionate", "Active", "Games", "Fast Tasker"],
     [
-      "Hello Mr Hesham, Please come to the adminstration with your parents",
+      "Please come to the adminstration with your parents.",
       "You have assigned in the Musium Trip.",
     ]
   ),

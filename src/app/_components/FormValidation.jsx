@@ -36,7 +36,6 @@ function FormValidation() {
     }
   };
 
-  console.log(allStudents);
   return (
     <div className="formParent p-[1rem] flex justify-center items-center gap-[0.5rem] flex-col lg:flex-row">
       <div className="left-details w-[100%] p-5 min-h-[360px] bg-slate-300 opacity-70 flex-1 flex flex-col justify-between">
