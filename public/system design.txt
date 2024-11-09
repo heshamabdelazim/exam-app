@@ -3,6 +3,7 @@ what states?
 -questions of exam
 -student + id + student exams + duration
 
+
 //----------------------------
  routes?
 
@@ -17,3 +18,12 @@ components?
 -userInterface : header, sidebar, content, footer
 -
 
+//--------------------------
+exam logic
+
+if(examStart){
+	show Questions
+	startTime 
+}else{
+	showInstruction comp
+}
