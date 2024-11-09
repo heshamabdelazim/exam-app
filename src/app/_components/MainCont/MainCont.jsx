@@ -5,7 +5,7 @@ import ExamDetails from "./ExamDetails/ExamDetails";
 
 function MainCont({ userData }) {
   return (
-    <div className="flex-1 grid grid-cols-2 gap-3  ">
+    <div className="flex-1 flex flex-col md:grid md:grid-cols-2 gap-3  ">
       <Welcome userData={userData} />
       <Scales userData={userData} />
       <ExamDetails userData={userData} />

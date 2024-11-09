@@ -22,7 +22,7 @@ function Scales({ userData }) {
     },
   ];
   return (
-    <div className="bg-backGround p-7">
+    <div className="bg-backGround p-4 pb-8 md:p-6">
       <CompHead headName="Scales" />
       <ul className="mt-4 flex flex-col gap-7">
         {arr.map((ele, ind) => (

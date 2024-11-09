@@ -38,10 +38,10 @@ function GradeLetter({ userData }) {
         {scalNums.map((ele, ind) => (
           <div
             key={ind}
-            className={`absolute flex flex-col items-center top-0 translate-x-[-50%] text-sm text- font-bold`}
+            className={`absolute flex flex-col items-center top-0 translate-x-[-50%] text-[10px] lg:text-sm text- font-bold`}
             style={{ left: `${ele}%` }}
           >
-            <span className="bg-black h-2 w-[1px] inline-block" />
+            <span className="bg-black w-[1px] h-2 inline-block" />
             {ele}%
           </div>
         ))}

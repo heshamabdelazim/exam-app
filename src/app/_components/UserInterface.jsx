@@ -22,9 +22,11 @@ function UserInterface({ userData }) {
   console.log(data);
   return (
     <>
-      <div className={`flex gap-5 p-8 ${notoSerif.className}`}>
-        <SideBar userData={userData} />
-        <MainCont userData={userData} />
+      <div
+        className={`flex flex-col lg:flex-row gap-5 p-5 md:p-8 ${notoSerif.className}`}
+      >
+        <SideBar userData={userData} contentPadding="p-3 md:p-6" />
+        <MainCont userData={userData} contentPadding="p-3 md:p-6" />
         {/* <Header userData={userData} /> */}
       </div>
       <button onClick={() => _logOut()}>Logout</button>

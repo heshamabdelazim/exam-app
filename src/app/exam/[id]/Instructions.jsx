@@ -10,7 +10,7 @@ function Instructions({ setUserConfirm, exam, userData }) {
   });
   const router = useRouter();
   const cancelConfirm = () => {
-    router.back();
+    router.replace("/");
   };
 
   const buttonClass = "px-3 py-2 rounded transition-all hover:text-white";

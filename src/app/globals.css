@@ -88,6 +88,9 @@
   box-shadow: inset 0 0 19px 14px lightgray
 }
 
+aside a{
+  z-index: 1;
+}
 aside a::before{
   content: "";
   position: absolute;
@@ -97,8 +100,14 @@ aside a::before{
   width: 20px;
   height: 20px;
   background-color:inherit;
+  z-index: -1;
 }
 
+@media (max-width:767px){
+  aside a::before{
+    display: none;
+  }
+}
 .flagged{
   position: relative;
   overflow: hidden;

@@ -52,12 +52,12 @@ function Timer({
   };
   return (
     <div
-      className="timer border-[3px] h-[70%]  basis-[30%] flex justify-between border-blue-300 rounded transition-all"
+      className="timer border-[3px] h-[70%] basis-[70%] md:basis-[30%] flex justify-between border-blue-300 rounded transition-all"
       style={{
         opacity: userConfirm ? "100%" : "70%",
       }}
     >
-      <div className="basis-[70%] bg-white flex justify-center items-center text-3xl tracking-widest transition-all ">
+      <div className="basis-[70%] bg-white flex justify-center items-center text-xl xl:text-3xl tracking-widest transition-all ">
         {`${digit2(timeNums.hr)} : ${digit2(timeNums.min)} : ${digit2(
           timeNums.sec
         )}`}

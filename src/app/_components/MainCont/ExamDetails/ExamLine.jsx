@@ -12,23 +12,24 @@ function ExamLine({ examObj }) {
         : "bg-red-300 opacity-60 "
       : "bg-lightOrange  attract"
   } px-2 py-1 rounded-full`;
+  const strongClass = "basis-1/4 text-center text-[14px] md:text-lg";
 
   return (
     <li className={liClass}>
-      <div className="flex gap-2 items-center basis-1/4">
+      <div className="flex gap-1 sm:gap-2 items-center basis-1/4">
         <Circle
           fill="white"
           stroke="none"
           width={10}
           height={10}
-          className="basis-3 attract"
+          className="basis-3 attract hidden sm:block"
         />
-        <strong>{examObj.name}</strong>
+        <strong className={strongClass}>{examObj.name}</strong>
       </div>
-      <strong className=" basis-1/4 text-center">
+      <strong className={strongClass}>
         {examObj.score ? `Score: ${examObj.score}%` : `Required`}
       </strong>
-      <strong className=" text-center basis-1/4 ">
+      <strong className={strongClass}>
         Duration{" "}
         {examObj.duration.hr
           ? `${examObj.duration.hr} : ${examObj.duration.min}hr`
@@ -37,15 +38,23 @@ function ExamLine({ examObj }) {
       {examObj.score ? (
         <>
           {ifPassed50 ? (
-            <strong className="text-center basis-1/4">
+            <strong className={strongClass}>
               Score: {examObj.score}% {!ifPassed50 && "Not passed"}{" "}
             </strong>
           ) : (
-            <ExamLink id={examObj.id} describe="Retake Exam" />
+            <ExamLink
+              id={examObj.id}
+              describe="Retake Exam"
+              strongClass={strongClass}
+            />
           )}
         </>
       ) : (
-        <ExamLink describe="Start Exam" id={examObj.id} />
+        <ExamLink
+          describe="Start Exam"
+          id={examObj.id}
+          strongClass={strongClass}
+        />
       )}
     </li>
   );

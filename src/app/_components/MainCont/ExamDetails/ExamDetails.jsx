@@ -1,8 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import CompHead from "../CompHead";
-import allExams from "../../../../../lib/exams";
-import ListCom from "../1-Welcome/ListCom";
 import ExamLine from "./ExamLine";
 
 function ExamDetails({ userData }) {
@@ -17,7 +15,7 @@ function ExamDetails({ userData }) {
   }, []);
   console.log(exams);
   return (
-    <div className="bg-backGround col-span-2 p-7">
+    <div className="bg-backGround col-span-2 p-3 md:p-6">
       <CompHead headName="Exams Details" />
       <ul className="mt-4 flex flex-col gap-5">
         {exams?.map((obj) => (

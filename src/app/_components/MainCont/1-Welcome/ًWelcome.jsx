@@ -10,7 +10,7 @@ function Welcome({ userData }) {
   const h3Classes = "text-xl font-semibold";
 
   return (
-    <div className="  bg-backGround p-7 rounded ">
+    <div className="  bg-backGround p-3 md:p-6 rounded ">
       <CompHead headName="Welcome" />
       <span className="font-bold text-lightOrange text-lg">
         {`${justSpliting(0)} ${justSpliting(1)}`}

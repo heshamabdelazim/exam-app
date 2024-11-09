@@ -1,9 +1,21 @@
 import { Flag } from "lucide-react";
 import React, { useEffect, useRef } from "react";
 
-function Questions({ exam, setExam, test, setTest }) {
+function Questions({ exam, setExam }) {
   let { current: num } = useRef(1);
 
+  const answering = (queId, userAns) => {
+    const allQues = exam.quesArray.map((que) => {
+      if (que.id == queId) {
+        console.log(que);
+        que.userAns = userAns;
+      }
+      return que;
+    });
+    setExam((old) => {
+      return { ...old, quesArray: allQues };
+    });
+  };
   const nestedLoopAnswers = (que) => {
     return (
       <>
@@ -15,8 +27,11 @@ function Questions({ exam, setExam, test, setTest }) {
               name={que.id}
               value={choice}
               className="p-3"
+              onChange={() => answering(que.id, choice)}
             />
-            <label htmlFor={num++}>{choice}</label>
+            <label htmlFor={num++} className="text-sm md:text-xl">
+              {choice}
+            </label>
           </li>
         ))}
       </>
@@ -41,14 +56,14 @@ function Questions({ exam, setExam, test, setTest }) {
         {exam?.quesArray.map((que, ind) => (
           <li key={que.id} id={`que${que.id}`}>
             <div
-              className={`flex p-6 justify-between rounded items-start transition-all ${
+              className={`flex gap-2 md:gap-0 p-2 md:p-6 justify-between rounded items-start transition-all ${
                 que.flagged ? "flagged" : "bg-transparent"
               }`}
             >
               <div>
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-2 md:gap-4">
                   <span className="text-lightOrange text-2xl">{ind + 1}.</span>
-                  <h4 className="text-3xl ">{que.QHead}</h4>
+                  <h4 className="text-xl md:text-3xl ">{que.QHead}</h4>
                 </div>
                 <ol className="my-7 mt-3 flex flex-col gap-5 pl-9 ">
                   {nestedLoopAnswers(que)}

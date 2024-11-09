@@ -8,6 +8,7 @@ import Instructions from "./Instructions";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/navigation";
 import { userValidation } from "../../../../lib/RTK/slices/studentSlice";
+import Result from "./Result";
 
 function page({ params }) {
   // let [slug, setSlug] = useState(null);
@@ -39,7 +40,7 @@ function page({ params }) {
       const theExam = allExamsArr.find((ele) => ele.id == id);
       setExam(() => {
         const allQue = theExam.quesArray.map((que) => {
-          return { ...que, flagged: false };
+          return { ...que, flagged: false, userAns: null };
         });
         return { ...theExam, quesArray: allQue };
       }); //it's like fetching from backend but no backend
@@ -57,8 +58,8 @@ function page({ params }) {
 
   //==== memoization components=====
   let asideComponent = useMemo(() => {
-    return <Aside exam={exam} />;
-  }, [exam]);
+    return <Aside exam={exam} begin={begin} />;
+  }, [exam, begin]);
   // ==================
   let mainContent = useMemo(() => {
     if (!userConfirm) {
@@ -83,7 +84,7 @@ function page({ params }) {
             </p>
           );
         } else {
-          return <>Your results are bla bla</>;
+          return <Result exam={exam} />;
         }
       }
     }
@@ -110,11 +111,10 @@ function page({ params }) {
             font ? font : ""
           } grid grid-rows-7 grid-cols-12 min-h-[100vh] max-h-[100vh]  `}
         >
-          <header className="bg-secondBackGround gap-4 row-span-1 col-span-12 flex justify-between items-center px-11 shadow-lg">
-            <div className="text-[3rem] text-lightOrange flex justify-center items-center">
+          <header className="bg-backGround gap-4 row-span-1 col-span-12 flex justify-between items-center px-4 md:px-11 shadow-lg">
+            <div className="text-[1.5rem] lg:text-[3rem] text-lightOrange flex justify-center items-center">
               {exam.name}
             </div>
-            {/* {timerMemoization} */}
             {showQues ? (
               timerMemoization
             ) : (
@@ -122,10 +122,9 @@ function page({ params }) {
                 <h3 className="font-semibold text-lightOrange">
                   Exam Submitted Successfully
                 </h3>
-                <p className="">Comeback after an hour</p>
               </>
             )}
-            <div className="flex flex-col justify-center items-center">
+            <div className="md:flex flex-col justify-center items-center hidden">
               <strong>
                 Duration{" "}
                 {exam.duration.hr
@@ -137,7 +136,7 @@ function page({ params }) {
           </header>
           {asideComponent}
           {/* <Aside exam={exam} /> */}
-          <main className="queSection overflow-auto row-span-6 col-span-11 p-10 ">
+          <main className="queSection overflow-auto row-span-6 col-span-11 p-5 md:p-10 ">
             {mainContent}
           </main>
         </div>
