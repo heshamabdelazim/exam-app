@@ -5,9 +5,6 @@ import { digit2 } from "../../../../lib/utilis";
 import { useRouter } from "next/navigation";
 
 function Instructions({ setUserConfirm, exam, userData }) {
-  useEffect(() => {
-    console.log("Instruction is rendering");
-  });
   const router = useRouter();
   const cancelConfirm = () => {
     router.replace("/");

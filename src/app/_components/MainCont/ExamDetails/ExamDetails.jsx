@@ -13,7 +13,6 @@ function ExamDetails({ userData }) {
   useEffect(() => {
     fetchingData();
   }, []);
-  console.log(exams);
   return (
     <div className="bg-backGround col-span-2 p-3 md:p-6">
       <CompHead headName="Exams Details" />

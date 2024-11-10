@@ -7,12 +7,6 @@ function FormInput({ type, form }) {
   let [password, setPassword] = useState(ifPassword && true); // true : false
   const iconClasses = "passIcon absolute z-50 cursor-pointer";
 
-  console.log(form); //output is
-  /*
-    formData: {userName: 'Hesham', password: 'Abdelazim', sorry: null}
-    setFormData : ƒ ()
-  */
-
   const updating = (e) => {
     ifPassword
       ? form.setFormData((old) => {

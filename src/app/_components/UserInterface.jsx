@@ -1,10 +1,6 @@
 "use client";
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { logOut } from "../../../lib/RTK/slices/studentSlice";
-import Image from "next/image";
-import { allStudents } from "../../../lib/data";
-import Header from "./Header";
+import { useSelector } from "react-redux";
 import SideBar from "./SideBar/SideBar";
 import MainCont from "./MainCont/MainCont";
 import { notoSerif } from "../fonts/fonts";
@@ -12,7 +8,6 @@ import { notoSerif } from "../fonts/fonts";
 function UserInterface({ userData }) {
   const data = useSelector((data) => data.student);
 
-  console.log(data);
   return (
     <>
       <div
@@ -20,7 +15,6 @@ function UserInterface({ userData }) {
       >
         <SideBar userData={userData} contentPadding="p-3 md:p-6" />
         <MainCont userData={userData} contentPadding="p-3 md:p-6" />
-        {/* <Header userData={userData} /> */}
       </div>
     </>
   );

@@ -3,7 +3,6 @@ import { Ban } from "lucide-react";
 import React, { useEffect } from "react";
 
 function Aside({ exam, begin }) {
-  console.log(exam.quesArray);
   return (
     <aside
       className={`row-span-6 col-span-1 flex flex-col items-center px-1 py-4 md:p-4 gap-8 bg-slate-100 overflow-hidden  ${

@@ -9,8 +9,6 @@ import { userValidation } from "../../lib/RTK/slices/studentSlice";
 export default function Home() {
   const user = useSelector((data) => data.student);
   const dispatch = useDispatch();
-  // console.log(user.percent());
-  console.log(user);
 
   useEffect(() => {
     const ifUser = localStorage.getItem("user");

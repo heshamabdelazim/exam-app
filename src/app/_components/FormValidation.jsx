@@ -24,7 +24,6 @@ function FormValidation() {
           user.password == formData.password
       );
 
-      console.log({ ...ifUser }, "TEST");
       if (ifUser) {
         dispatch(userValidation({ ...ifUser })); //why spread? because the output is with class like this => Student{id:..,...,...} so I made it normal object
         window.localStorage.setItem("user", JSON.stringify({ ...ifUser }));
