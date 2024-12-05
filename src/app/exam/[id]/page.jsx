@@ -30,14 +30,14 @@ function page({ params }) {
   /*
   the scinario will work throw the following
     after the user Enter, It will show instructions in the mainContent and the button start will not be working
-    so the user confirm instructions? the button can be work but the main content will be=>(please press start to begin exam)
+    so the user confirm instructions? the button work but the main content will be=>(please press start to begin exam)
     the user press start ? the button will be (submit) and the main Content will be all questions
   */
   useEffect(() => {
     if (localStorage.getItem("user")) {
       const userData = JSON.parse(localStorage.getItem("user"));
       const allExamsArr = userData.examDetails;
-      const theExam = allExamsArr.find((ele) => ele.id == id);
+      const theExam = allExamsArr.find((ele) => ele.examId == id);
       setExam(() => {
         const allQue = theExam.quesArray.map((que) => {
           return { ...que, flagged: false, userAns: null };

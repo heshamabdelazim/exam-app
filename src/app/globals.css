@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* @import url("./_components/MainCont/2-Scales/scales.scss");  */
 
 :root {
   --backGround: rgb(255, 236, 200);

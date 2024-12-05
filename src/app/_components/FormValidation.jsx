@@ -52,7 +52,7 @@ function FormValidation() {
           <ul className="flex flex-wrap justify-center  md:flex-col gap-4 p-0 md:p-2 my-4 md:my-0">
             {allStudents.map((stud) => (
               <li
-                key={stud.id}
+                key={stud.userId}
                 className="flex items-center gap-3 md:gap-5 text-center"
               >
                 <Contact className="text-orange-400" />

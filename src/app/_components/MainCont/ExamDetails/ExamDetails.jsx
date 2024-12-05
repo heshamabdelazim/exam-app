@@ -18,7 +18,7 @@ function ExamDetails({ userData }) {
       <CompHead headName="Exams Details" />
       <ul className="mt-4 flex flex-col gap-5">
         {exams?.map((obj) => (
-          <ExamLine key={obj.id} examObj={obj} />
+          <ExamLine key={obj.examId} examObj={obj} />
         ))}
       </ul>
     </div>
