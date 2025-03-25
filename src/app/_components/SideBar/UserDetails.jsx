@@ -8,10 +8,10 @@ function UserDetails({ userData }) {
       <div className="flex flex-col gap-2 mb-4">
         <LineDetails head="Age" value={userData.age} />
         <LineDetails head="Location" value={userData.location} />
-        <LineDetails head="ID" value={userData.id} />
+        <LineDetails head="ID" value={"00" + userData.userId} />
       </div>
       <div className="flex flex-wrap gap-3">
-        {userData.hobbies.map((hob, id) => (
+        {userData.hobbies?.map((hob, id) => (
           <span
             key={id}
             className="bg-lightOrange p-2 rounded-lg font-semibold text-sm text-white"

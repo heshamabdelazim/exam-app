@@ -60,6 +60,7 @@ function page({ params }) {
   let asideComponent = useMemo(() => {
     return <Aside exam={exam} begin={begin} />;
   }, [exam, begin]);
+  console.log(userData);
   // ==================
   let mainContent = useMemo(() => {
     if (!userConfirm) {

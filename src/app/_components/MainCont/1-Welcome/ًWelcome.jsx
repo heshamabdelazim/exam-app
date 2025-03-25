@@ -5,7 +5,7 @@ import NewsList from "./NewsList";
 function Welcome({ userData }) {
   const justSpliting = (ind) => {
     //for first 2 names
-    return userData.name.split(" ")[ind];
+    return userData.name?.split(" ")[ind];
   };
   const h3Classes = "text-xl font-semibold";
 
