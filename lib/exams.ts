@@ -1,6 +1,11 @@
 /*
 content is the following
-allExams=[{mathExam}, {ArabicExam}, .....]
+  -interface
+  -class Exam
+  -class Question
+  -const allExams
+
+the file's output => allExams=[{mathExam}, {ArabicExam}, .....]
 
 */
 
@@ -10,8 +15,7 @@ interface examDuration {
 }
 
 class Exam {
-  static examId: number = 1;
-
+  private static examId: number = 1;
   private examId: number;
   private name: String;
   private duration: examDuration;
@@ -38,8 +42,7 @@ class Exam {
 }
 class Question {
   // this class will be called when the teacher enter his question many times
-  static id: number = 1;
-
+  private static id: number = 1;
   private id: number;
   private QHead: String;
   private choices: (String | number)[];

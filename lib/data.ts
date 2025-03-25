@@ -1,4 +1,11 @@
-// import allExams from "./exams";
+/*
+  Content 
+  -interface studentGrades
+  -class Student
+  -class StudentBuilder
+  -const allStudents
+*/
+
 import allExams from "./exams";
 
 interface studentGrades {
