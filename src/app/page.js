@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import UserInterface from "./_components/UserInterface";
 import FormValidation from "./_components/FormValidation";
