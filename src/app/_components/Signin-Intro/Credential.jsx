@@ -2,12 +2,12 @@
 import { Copy } from "lucide-react";
 import React, { useEffect, useRef, useState } from "react";
 
-function Credential({ children, test }) {
+function Credential({ children }) {
   //the children is a react element=>  <p>UserName: hesham@12</p>
 
   let [msg, setMsg] = useState(null);
   const handleCopy = () => {
-    let isCopied = navigator.clipboard.writeText(children.props.children[1]);
+    let isCopied = navigator.clipboard.writeText(children.props.children[1]); //copy hesham@12
     try {
       if (isCopied) setMsg("COPIED!");
     } catch (err) {
