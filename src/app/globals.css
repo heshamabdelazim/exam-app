@@ -45,6 +45,8 @@
   height: 100%;
   z-index: -1;
   opacity: 0.3;
+  background-size: 105%;
+  animation: 8s intro infinite linear;
 }
 
 .formParent form{
@@ -140,9 +142,23 @@ aside a::before{
   to{right: 0;}
 }
 
+@keyframes intro{
+  0%, 100% {
+      opacity: 0;
+  }
+  10% {
+      opacity: 40%;
+  }
+  90% {
+      opacity: 40%;
+  }
+  100%{
+  background-position: -1000%;
+  }
+}
 
 
-  @layer utilities {
+@layer utilities {
     .text-balance {
       text-wrap: balance;
     }
