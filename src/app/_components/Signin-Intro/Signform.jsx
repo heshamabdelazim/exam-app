@@ -10,7 +10,7 @@ function Signform() {
     userName: "",
     password: "",
     sorry: null,
-  });
+  }); //this is bad useState acts like Heap data-structure. If a key changes, all state will be updated
   const dispatch = useDispatch();
 
   const validation = (e) => {
@@ -23,7 +23,7 @@ function Signform() {
       );
 
       if (ifUser) {
-        dispatch(userValidation({ ...ifUser })); //why spread? because the output is with class like this => Student{id:..,...,...} so I made it normal object
+        dispatch(userValidation({ ...ifUser })); //why spread? because the output is class object like this => Student{id:..,...,...} so I made it plain object
         window.localStorage.setItem("user", JSON.stringify({ ...ifUser }));
       } else {
         setFormData((old) => {
@@ -46,7 +46,7 @@ function Signform() {
         <input
           type="submit"
           value="Log in"
-          className="cursor-pointer hover:bg-lightOrange p-3 bg-lightYellow transition"
+          className="cursor-pointer hover:bg-lightOrange p-3 bg-lightYellow transition "
         />
       </div>
       <h3

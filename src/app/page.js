@@ -4,7 +4,6 @@ import UserInterface from "./_components/UserInterface";
 import FormValidation from "./_components/FormValidation";
 import { useEffect } from "react";
 import { userValidation } from "../../lib/RTK/slices/studentSlice";
-import { Student } from "../../lib/data";
 
 export default function Home() {
   const user = useSelector((data) => data.student);

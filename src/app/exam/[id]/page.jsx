@@ -28,11 +28,23 @@ function page({ params }) {
   const router = useRouter();
   const dispatch = useDispatch();
   /*
-  the scinario will work throw the following
-    after the user Enter, It will show instructions in the mainContent and the button start will not be working
-    so the user confirm instructions? the button work but the main content will be=>(please press start to begin exam)
-    the user press start ? the button will be (submit) and the main Content will be all questions
-  */
+   * Scenario: Initial Exam Flow
+   *
+   * This documentation outlines the step-by-step user interaction and UI changes
+   * for the beginning of the exam process.
+   *
+   * 1. Initial State (After User Accesses the Exam):
+   * - mainContent: Displays initial instructions.
+   * - 'Start Exam' Button: Disabled (not clickable).
+   *
+   * 2. User Confirms Instructions (clicks 'Confirm'):
+   * - 'Start Exam' Button: Enabled (clickable).
+   * - mainContent: Updates to "Please press start to begin exam."
+   *
+   * 3. User Clicks 'Start Exam' Button:
+   * - 'Start Exam' Button: Text changes to "Submit" (and its changes functionality).
+   * - mainContent: Displays the exam questions.
+   */
   useEffect(() => {
     if (localStorage.getItem("user")) {
       const userData = JSON.parse(localStorage.getItem("user"));
@@ -43,7 +55,7 @@ function page({ params }) {
           return { ...que, flagged: false, userAns: null };
         });
         return { ...theExam, quesArray: allQue };
-      }); //it's like fetching from backend but no backend
+      }); // @fetching from a server but no backend
       setFont(notoSerif.className); //to avoid hydration
       setTimeNums({
         min: theExam?.duration.min,
@@ -57,14 +69,13 @@ function page({ params }) {
   }, []);
 
   //==== memoization components=====
-  let asideComponent = useMemo(() => {
+  const asideComponent = useMemo(() => {
     return <Aside exam={exam} begin={begin} />;
   }, [exam, begin]);
-  console.log(userData);
   // ==================
-  let mainContent = useMemo(() => {
-    if (!userConfirm) {
-      // when the user enter he will see instructions first
+  const mainContent = useMemo(() => {
+    // the first access of the user, mainContent will be instructions
+    if (!userConfirm)
       return (
         <Instructions
           setUserConfirm={setUserConfirm}
@@ -72,24 +83,20 @@ function page({ params }) {
           userData={userData}
         />
       );
-    } else {
-      //when the user clicked confirm to be true and that after he has read instructions
-      if (begin) {
-        //the user clicked on begin to be true then the exam show
-        return <Questions exam={exam} setExam={setExam} />;
-      } else {
-        if (showQues) {
-          return (
-            <p className="text-center text-2xl">
-              Make sure you are ready and phone is off.
-            </p>
-          );
-        } else {
-          return <Result exam={exam} />;
-        }
-      }
-    }
+    // user confirmed instructions, mainContent will be "Are you ready?"
+    if (userConfirm && showQues && !begin)
+      return (
+        <p className="text-center text-2xl">
+          Make sure you are ready and phone is off.
+        </p>
+      );
+    //user is ready, mainContent will be questoins
+    if (userConfirm && begin)
+      return <Questions exam={exam} setExam={setExam} />;
+    //user finish, mainContent will be the result
+    if (userConfirm && !showQues) return <Result exam={exam} />;
   }, [exam, userConfirm, userData, begin, showQues]);
+
   // ==================
   let timerMemoization = useMemo(
     () => (

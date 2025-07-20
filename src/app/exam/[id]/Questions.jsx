@@ -1,5 +1,5 @@
 import { Flag } from "lucide-react";
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 
 function Questions({ exam, setExam }) {
   let { current: num } = useRef(1);
@@ -7,7 +7,6 @@ function Questions({ exam, setExam }) {
   const answering = (queId, userAns) => {
     const allQues = exam.quesArray.map((que) => {
       if (que.id == queId) {
-        console.log(que);
         que.userAns = userAns;
       }
       return que;
@@ -45,7 +44,6 @@ function Questions({ exam, setExam }) {
       }
       return que;
     });
-    console.log(allQuesArr);
     setExam((old) => {
       return { ...old, quesArray: allQuesArr };
     });

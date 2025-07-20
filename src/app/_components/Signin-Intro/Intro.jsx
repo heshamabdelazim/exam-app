@@ -25,7 +25,7 @@ function Intro() {
             >
               <Contact className="text-orange-400" />
               <div className="flex-1">
-                <Credential test="hello">
+                <Credential>
                   <p>UserName: {stud.userName}</p>
                 </Credential>
                 <Credential>

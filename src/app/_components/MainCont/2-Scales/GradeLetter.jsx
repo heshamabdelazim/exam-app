@@ -24,7 +24,6 @@ function GradeLetter({ userData }) {
       100
     );
     setTimeout(() => {
-      console.log(`left:${userData.totalScore}%`);
       arrow.current.style.cssText = `left:${userData.totalScore}%;  ${transitionBarMove};`;
     }, 500);
   }, []);

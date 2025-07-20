@@ -16,7 +16,9 @@ function Timer({
     // setInterval(()=>{},1000)
     if (begin) {
       const intervalId = setInterval(() => {
-        if (timeNums.hr == 0 && timeNums.min == 0 && timeNums.sec == 0) {
+        const isExam_end =
+          timeNums.hr == 0 && timeNums.min == 0 && timeNums.sec == 0;
+        if (isExam_end) {
           clearInterval(intervalId);
           setBegin(false);
           setShowQues(false);

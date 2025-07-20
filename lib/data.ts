@@ -72,7 +72,7 @@ class Student {
     this.examDetails = this._examDetails();
   }
   private _examsFinished(examInputs: studentGrades[]): studentGrades[] {
-    console.log(examInputs);
+    // console.log(examInputs);
 
     // console.log(examInputs.filter(x => x.score))
     return examInputs.filter((exam) => exam.score);

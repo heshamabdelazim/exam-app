@@ -1,6 +1,6 @@
 "use client";
 import { Ban } from "lucide-react";
-import React, { useEffect } from "react";
+import React from "react";
 
 function Aside({ exam, begin }) {
   return (

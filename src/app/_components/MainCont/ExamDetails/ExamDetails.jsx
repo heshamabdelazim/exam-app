@@ -2,13 +2,26 @@
 import React, { useEffect, useState } from "react";
 import CompHead from "../CompHead";
 import ExamLine from "./ExamLine";
+import { useDispatch } from "react-redux";
+import { fireError } from "../../../../../lib/utilis";
 
 function ExamDetails({ userData }) {
   let [exams, setExams] = useState(null);
+  const dispatch = useDispatch();
   const fetchingData = async () => {
-    //suppose we made fetch // no backend //only the class return objects
-    setExams(userData.examDetails);
-    // return allExams
+    try {
+      //suppose we made fetch // no backend //only the class return objects
+      setExams(userData.examDetails);
+      console.log("codes read");
+
+      // beso;
+    } catch (err) {
+      fireError(dispatch, "sorry, something went wrong");
+    } finally {
+      setTimeout(() => {
+        fireError(dispatch, ""); //after 5 seconds, the (error msg) will disappear
+      }, 5000);
+    }
   };
   useEffect(() => {
     fetchingData();
